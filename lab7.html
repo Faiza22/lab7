@@ -1,0 +1,75 @@
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<title>Form Builder</title>
+	<script>
+		$(document).ready(function(){
+
+			$("#start").click(function()
+			{
+				var name = prompt("Input form name:");
+				
+				$("#txt").append("<form>");
+				$("#maindiv").css("display", "block");
+				$("#start").css("display", "none");
+				$("#txt").append("<center><h2>"+name+"</h2></center>");
+
+			});		
+	
+			$("#btn1").click(function()
+			{
+				var label = prompt("Input element label:");
+				var name = prompt("Input element name:");
+				$("#txt").append("<form><label>"+label+"</label><input type='text' name="+ name+">");
+			});
+
+			$("#btn2").click(function()
+			{
+				var label = prompt("Input element label:");
+				var name = prompt("Input element name:");
+				$("#txt").append("<label>"+label+"</label><input type='password' name="+ name+">");
+				$("#txt").append("<br>");
+			});
+
+			$("#btn3").click(function()
+			{
+				var label = prompt("Input element label:");
+				var name = prompt("Input element name:");
+				var num = prompt("Enter number of options for radio buttons:");
+				$("#txt").append("<label>"+label+"</label>");
+				for(i=1; i<=num; i++){
+					var opt = prompt("Enter option value:");
+					$("#txt").append("<input type='radio' name="+ name+">" +opt);
+				}
+				$("#txt").append("<br>");
+			});
+
+			$("#btn4").click(function()
+			{
+				var label = prompt("Input element label:");
+				var name = prompt("Input element name:");
+				var num = prompt("Enter number of options for checkboxes:");
+				$("#txt").append("<label>"+label+"</label>");
+				for(i=1; i<=num; i++){
+					var opt = prompt("Enter option value:");
+					$("#txt").append("<br><input type='checkbox' name="+ name+">" +opt);
+				}
+				$("#txt").append("<br>");
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<div><center> <h1> Dynamic Form Builder </h1> </center></div>
+	<div><center><button id="start">Create new Form</button></center></div>
+	<div id="maindiv" style="display:none;">
+		<button id="btn1">Create a new Text Field</button>
+		<button id="btn2">Create a new Password Field</button>
+		<button id="btn3">Create radio buttons</button>
+		<button id="btn4">Create checkboxes</button>
+		<br>
+		<div id="txt"> </div>
+	</div>
+</body>
+</html>
